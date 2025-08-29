@@ -1,4 +1,5 @@
 import express from "express"
+import connectDB from "./config/connectDB.js";
 
 import "dotenv/config"
 
@@ -11,9 +12,11 @@ app.get("/",(req,res)=>{
 
 })
 
-app.listen(PORT,()=>{
+app.listen(PORT, async()=>{
 
     console.log(`Server has been initialized at http://localhost:${PORT} `);
+
+    await connectDB();
 
 })
 
